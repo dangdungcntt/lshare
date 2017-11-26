@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)/$ admin.php?c=$1&a=$2
+RewriteRule ^admin/([a-zA-Z]+)/ admin.php?c=$1
+RewriteRule ^admin/$ admin.php
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
