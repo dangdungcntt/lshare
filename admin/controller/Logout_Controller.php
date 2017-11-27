@@ -2,11 +2,9 @@
 
 class Logout_Controller extends Base_Controller
 {
-
-  public function indexAction()
-  {
+  public function indexAction() {
     unset($_SESSION);
     session_destroy();
-    header('Location: /admin/');
+    header("Location: {$this->rootRoute}");
   }
 }

@@ -34,20 +34,20 @@
                   <span class="clear">
                     <span class="block m-t-xs">
                       <strong class="font-bold">
-                        <?= "<strong>{$name}</strong>" ?></strong>
+                        <?= "<strong>{$_SESSION['user']['full_name']}</strong>" ?></strong>
                     </span>
-                    <span class="text-muted text-xs block">Art Director
+                    <span class="text-muted text-xs block"><?= $_SESSION['user']['name'] ?>
                       <b class="caret"></b>
                     </span>
                   </span>
                 </a>
                 <ul class="dropdown-menu animated fadeInRight m-t-xs">
                   <li>
-                    <a href="#">Profile</a>
+                    <a href="#">Cá nhân</a>
                   </li>
                   <li class="divider"></li>
                   <li>
-                    <a href="/admin/logout/">Logout</a>
+                    <a href="/admin/logout/">Đăng xuất</a>
                   </li>
                 </ul>
               </div>
@@ -107,36 +107,36 @@
             </form>
           </div>
           <?php if (isset($_SESSION['user'])) : ?>
-          <ul class="nav navbar-top-links navbar-right">
-            <li>
-              <a href="/admin/logout/">
-                <i class="fa fa-sign-out"></i> Log out
-              </a>
-            </li>
-          </ul>
+            <ul class="nav navbar-top-links navbar-right">
+              <li>
+                <a href="/admin/logout/">
+                  <i class="fa fa-sign-out"></i> Đăng xuất
+                </a>
+              </li>
+            </ul>
           <?php endif ?>
         </nav>
       </div>
 
       <?php if (!empty($breadcrumb)) : ?>
-      <div class="row wrapper border-bottom white-bg page-heading">
-        <div class="col-lg-9">
-          <h2><?= $title ?></h2>
-          <ol class="breadcrumb">
-            <?php $last = array_pop($breadcrumb); foreach ($breadcrumb as $key => $value) : ?>
-            <li>
-              <a href="<?= $value['href'] ?>">
-                <?= $value['name'] ?>
-              </a>
-            </li>
-            <?php endforeach ?>
-            <li class="active">
-              <a href="<?= $last['href'] ?>">
-                <?= $last['name'] ?>
-              </a>
-            </li>
-          </ol>
+        <div class="row wrapper border-bottom white-bg page-heading">
+          <div class="col-lg-9">
+            <h2><?= $title ?></h2>
+            <ol class="breadcrumb">
+              <?php $last = array_pop($breadcrumb); foreach ($breadcrumb as $key => $value) : ?>
+              <li>
+                <a href="<?= $value['href'] ?>">
+                  <?= $value['name'] ?>
+                </a>
+              </li>
+              <?php endforeach ?>
+              <li class="active">
+                <a href="<?= $last['href'] ?>">
+                  <?= $last['name'] ?>
+                </a>
+              </li>
+            </ol>
+          </div>
         </div>
-      </div>
       <?php endif ?>
       <div class="wrapper wrapper-content animated fadeInRight">

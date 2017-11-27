@@ -19,9 +19,10 @@
 
     <script>
         $(document).ready(function(){
-            $('.file-box').each(function() {
-                animationHover(this, 'pulse');
-            });
+          $('.file-box').each(function() {
+              animationHover(this, 'pulse');
+          });
+
         });
     </script>
   </body>

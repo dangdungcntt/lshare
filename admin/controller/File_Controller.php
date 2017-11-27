@@ -2,34 +2,47 @@
 
 class File_Controller extends Base_Controller
 {
+  public function __construct() {
+    parent::__construct();
+    $this->route = $this->rootRoute . 'file/';
+  }
+
   public function indexAction() {
-    if ( ! $this->isLogined()) { header("Location: /admin/"); return; }
-    $route = '/admin/file/';
-    $menu = $this->load_menu($route);
+    if ( ! $this->isLogined()) { $this->view->load('login'); return; } //chưa đăng nhập
+
+    $menu = $this->load_menu($this->route, $name, $view);
+    $breadcrumb = $this->load_breadcrumb($this->route);
+
     $this->load_header([
-      'title' => 'Quản lý tệp', 
-      'name' => $_SESSION['user']['name'],
-      'breadcrumb' => $this->load_breadcrumb($route, 1),
+      'title' => $name,
+      'breadcrumb' => $breadcrumb,
       'menu' => $menu
     ]);
-    $this->view->load('list-file');
+    $this->view->load($view);
+    $this->load_footer();
   }
 
   public function uploadAction() {
-    if ( ! $this->isLogined()) { header("Location: /admin/"); return; }
-    $route = '/admin/file/upload/';
-    $menu = $this->load_menu($route);
-    $this->load_header([
-      'title' => 'Thêm tệp tin',
-      'name' => $_SESSION['user']['name'],
-      'breadcrumb' => $this->load_breadcrumb($route, 2),
-      'menu' => $menu
-    ]);
-    $this->view->load('upload-file');
-  }
+    if ( ! $this->isLogined()) { $this->view->load('login'); return; } //chưa đăng nhập
 
-  public function __destruct() {
-    $this->load_footer();
-    parent::__destruct();
+    if ($_SERVER['REQUEST_METHOD'] === "GET") {
+      $uploadRoute = $this->route . 'upload/';
+      $menu = $this->load_menu($uploadRoute, $name, $view);
+      $breadcrumb = $this->load_breadcrumb($uploadRoute);
+
+      $this->load_header([
+        'title' => $name,
+        'breadcrumb' => $breadcrumb,
+        'menu' => $menu
+      ]);
+      $this->view->load($view);
+      $this->load_footer();
+      return;
+    }
+    
+    if ($_SERVER['REQUEST_METHOD'] === "POST") {
+
+    }
+    die("Not support method");
   }
 }

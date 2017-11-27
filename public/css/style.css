@@ -889,6 +889,7 @@ button.dim:active:before {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  user-select: none;
 }
 .onoffswitch-checkbox {
   display: none;
@@ -962,6 +963,7 @@ button.dim:active:before {
   background: #ffffff;
   box-shadow: none;
   -moz-box-sizing: border-box;
+  box-sizing: border-box;
   background-color: #FFFFFF;
   border: 1px solid #CBD5DD;
   border-radius: 2px;
@@ -1616,6 +1618,7 @@ table.dataTable thead .sorting:after {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  user-select: none;
 }
 .onoffswitch-checkbox {
   display: none;
@@ -1690,6 +1693,7 @@ table.dataTable thead .sorting:after {
 /* jqGrid */
 .ui-jqgrid {
   -moz-box-sizing: content-box;
+  box-sizing: content-box;
 }
 .ui-jqgrid-btable {
   border-collapse: separate;
@@ -1822,8 +1826,8 @@ table.dataTable thead .sorting:after {
   font-size: 11px;
 }
 .ui-jqgrid .form-control {
-  height: 10px;
-  width: auto;
+  /* height: 10px;
+  width: auto; */
   display: inline;
   padding: 10px 12px;
 }
@@ -2035,9 +2039,9 @@ table.dataTable thead .sorting:after {
   background: #f3f3f4;
   padding: 10px;
 }
-#nestable2 .dd-handle:hover {
-  /*background: #bbb;*/
-}
+/* #nestable2 .dd-handle:hover {
+  background: #bbb;
+} */
 #nestable2 span.label {
   margin-right: 10px;
 }
@@ -2598,7 +2602,7 @@ table.table-mail tr td {
   margin: 0 0 7px;
   padding: 0;
   text-overflow: ellipsis;
-  float: left;
+  /* float: left; */
 }
 .ibox-title .label {
   float: left;
@@ -2606,7 +2610,7 @@ table.table-mail tr td {
 }
 .ibox-tools {
   display: inline-block;
-  float: right;
+  /* float: right; */
   margin-top: 0;
   position: relative;
   padding: 0;
@@ -3212,11 +3216,13 @@ ul.notes li div {
   -webkit-transform: rotate(-6deg);
   -o-transform: rotate(-6deg);
   -moz-transform: rotate(-6deg);
+  transform: rotate(-6deg);
 }
 ul.notes li:nth-child(even) div {
   -o-transform: rotate(4deg);
   -webkit-transform: rotate(4deg);
   -moz-transform: rotate(4deg);
+  transform: rotate(4deg);
   position: relative;
   top: 5px;
 }
@@ -3224,6 +3230,7 @@ ul.notes li:nth-child(3n) div {
   -o-transform: rotate(-3deg);
   -webkit-transform: rotate(-3deg);
   -moz-transform: rotate(-3deg);
+  transform: rotate(-3deg);
   position: relative;
   top: -5px;
 }
@@ -3231,6 +3238,7 @@ ul.notes li:nth-child(5n) div {
   -o-transform: rotate(5deg);
   -webkit-transform: rotate(5deg);
   -moz-transform: rotate(5deg);
+  transform: rotate(5deg);
   position: relative;
   top: -10px;
 }
@@ -3239,6 +3247,7 @@ ul.notes li div:focus {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
+  transform: scale(1.1);
   position: relative;
   z-index: 5;
 }
@@ -3256,6 +3265,7 @@ ul.notes li div {
   -moz-transition: -moz-transform 0.15s linear;
   -o-transition: -o-transform 0.15s linear;
   -webkit-transition: -webkit-transform 0.15s linear;
+  transition: transform 0.15s linear;
 }
 /* FILE MANAGER */
 .file-box {
@@ -3858,6 +3868,7 @@ body.skin-2 #wrapper {
   background: -ms-radial-gradient(center, ellipse cover, #f6f6f6 20%, #d5d5d5 100%);
   background: radial-gradient(ellipse at center, #f6f6f6 20%, #d5d5d5 100%);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f6f6f6, endColorstr=#d5d5d5)";
+  filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f6f6f6, endColorstr=#d5d5d5)";
 }
 .skin-2 .ibox-title,
 .skin-2 .ibox-content {
@@ -3993,7 +4004,7 @@ body.skin-3 {
   #page-wrapper {
     position: inherit;
     margin: 0 0 0 220px;
-    min-height: 1200px;
+    min-height: calc(100vh - 95px);
   }
   .navbar-static-side {
     z-index: 101;
@@ -4029,7 +4040,7 @@ body.skin-3 {
   }
   .navbar-header {
     display: inline;
-    float: left;
+    /* float: left; */
   }
   .sidebard-panel {
     z-index: 2;
@@ -4087,4 +4098,33 @@ body.skin-3 {
 
 .breadcrumb .active {
   font-weight: bold;
+}
+
+#taggle {
+  height: 40px;
+}
+
+.taggle_placeholder {
+  left: 26px;
+}
+
+input.taggle_input {
+  padding-top: 10px;
+  font-size: 12px;
+
+}
+
+ul.taggle_list {
+  padding: 0;
+  font-size: 12px;
+}
+
+.profile-element img{
+  width: 48px;
+  height: 48px;
+}
+
+.form-horizontal textarea {
+  width: 100%;
+  overflow: hidden;
 }

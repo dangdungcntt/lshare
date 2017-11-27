@@ -2,22 +2,19 @@
 
 class Index_Controller extends Base_Controller
 {
-
-  public function indexAction()
-  {
+  public function indexAction() {
     if ( ! $this->isLogined()) {
       $this->view->load('login');
       return;
     }
     // Load view
-    $menu = $this->load_menu('/admin/');
+    $menu = $this->load_menu($this->rootRoute, $name, $view);
     $this->load_header([
-      'title' => 'Trang quản trị',
-      'name' => $_SESSION['user']['name'],
-      'breadcrumb' => $this->load_breadcrumb('/admin/', 0),
+      'title' => $name,
+      'breadcrumb' => $this->load_breadcrumb($this->rootRoute),
       'menu' => $menu
     ]);
-    $this->view->load('list-file');
-    $this->load_footer();
+    $this->view->load($view);
+    $this->load_footer();  
   }
 }

@@ -9,7 +9,7 @@
           <a href="#" class="file-control">Audio</a>
           <a href="#" class="file-control">Images</a>
           <div class="hr-line-dashed"></div>
-          <button class="btn btn-primary btn-block">Đăng bài mới</button>
+          <a href="/admin/file/upload/" class="btn btn-primary btn-block">Đăng bài mới</a>
           <div class="hr-line-dashed"></div>
           <h5>Danh mục</h5>
           <ul class="folder-list" style="padding: 0">
